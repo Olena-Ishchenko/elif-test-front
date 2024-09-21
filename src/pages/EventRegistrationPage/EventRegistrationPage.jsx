@@ -1,6 +1,8 @@
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import css from "./EventRegistrationPage.module.css";
+import { NavLink } from "react-router-dom";
 
 export default function EventRegistrationPage() {
   axios.defaults.baseURL = "http://localhost:3000";
@@ -17,8 +19,11 @@ export default function EventRegistrationPage() {
   }, [participantData]);
 
   return (
-    <>
+    <div className={css.registrPage}>
+      <NavLink className={css.homeLink} to="/events">
+        Events
+      </NavLink>
       <RegistrationForm onSubmit={setParticipantData} />{" "}
-    </>
+    </div>
   );
 }

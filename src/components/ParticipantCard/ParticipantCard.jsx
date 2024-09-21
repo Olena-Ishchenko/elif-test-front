@@ -1,8 +1,10 @@
+import css from "./ParticipantCard.module.css";
+
 const ParticipantCard = ({ participant }) => {
   return (
-    <div>
-      <h3>{participant.fullname}</h3>
-      <p>{participant.email}</p>
+    <div className={css.participantCard}>
+      <h3 className={css.participantName}>{participant.fullname}</h3>
+      <p className={css.participantEmail}>{participant.email}</p>
     </div>
   );
 };

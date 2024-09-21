@@ -1,0 +1,15 @@
+.participantCard {
+  width: 240px;
+  height: 80px;
+  padding: 15px;
+  border: 1px solid black;
+  text-align: left;
+}
+
+.participantName {
+  font-size: 18px;
+}
+
+.participantEmail {
+  font-size: 14px;
+}

@@ -1,0 +1,21 @@
+.eventsBoard {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.eventsTitle {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  color: blue;
+}
+
+.pagination li {
+  cursor: pointer;
+}

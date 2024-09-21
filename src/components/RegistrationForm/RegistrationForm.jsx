@@ -2,22 +2,20 @@ import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useParams } from "react-router-dom";
+import css from "./RegistrationForm.module.css";
 
 const RegistrationForm = ({ onSubmit }) => {
-  //   const eighteenYearsAgo = new Date();
-  //   eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
-
   const schemaValidation = Yup.object({
     fullname: Yup.string()
+      .required("Name is required")
       .min(4, "Too Short")
-      .max(50, "Too Long")
-      .required("Name is required"),
+      .max(50, "Too Long"),
     email: Yup.string()
       .email("Enter valid email")
       .required("Email is required"),
-    dateofbirth: Yup.date()
-      //   .max(new Date())
-      .required("Date of birth is required"),
+    dateofbirth: Yup.string()
+      .required("Date of birth is required")
+      .matches(/^\d{2}-\d{2}-\d{4}$/, "sample dd-mm-yyyy"),
   });
 
   const { id } = useParams();
@@ -33,7 +31,7 @@ const RegistrationForm = ({ onSubmit }) => {
 
   return (
     <div>
-      <h2>Event registration</h2>
+      <h2 className={css.registrTitle}>Event registration</h2>
       <form
         onSubmit={handleSubmit((data) => {
           data.event_id = id;
@@ -42,35 +40,62 @@ const RegistrationForm = ({ onSubmit }) => {
           reset();
         })}
       >
-        <div>
-          <input
-            {...register("fullname", { required: true })}
-            placeholder="Full name"
-          />
+        <div className={css.registrForm}>
+          <label className={css.formLabel}>
+            Full name
+            <input
+              className={css.formInput}
+              {...register("fullname", { required: true })}
+            />
+          </label>
           {errors.fullname?.message && <p>{errors.fullname?.message}</p>}
-          <input
-            {...register("email", { required: true })}
-            placeholder="Email"
-          />
+          <label className={css.formLabel}>
+            Email
+            <input
+              className={css.formInput}
+              {...register("email", { required: true })}
+            />
+          </label>
           {errors.email?.message && <p>{errors.email?.message}</p>}
-          <input
-            {...register("dateofbirth", { required: true })}
-            placeholder="Date of birth"
-          />
+          <label className={css.formLabel}>
+            Date of birth
+            <input
+              className={css.formInput}
+              {...register("dateofbirth", { required: true })}
+            />
+          </label>
           {errors.dateofbirth?.message && <p>{errors.dateofbirth?.message}</p>}
-          <label>
-            <input {...register("radio")} type="radio" value="Social media" />{" "}
-            Social media
-          </label>
-          <label>
-            <input {...register("radio")} type="radio" value="Friends" /> Friens
-          </label>
-          <label>
-            <input {...register("radio")} type="radio" value="Found myself" />{" "}
-            Found myself
-          </label>
+          <div className={css.formRadioContainer}>
+            <p className={css.formRadioText}>
+              Where did you hear about this event?
+            </p>
+            <div className={css.formRadioInputs}>
+              <label>
+                <input
+                  {...register("radio")}
+                  type="radio"
+                  value="Social media"
+                />{" "}
+                Social media
+              </label>
+              <label>
+                <input {...register("radio")} type="radio" value="Friends" />{" "}
+                Friens
+              </label>
+              <label>
+                <input
+                  {...register("radio")}
+                  type="radio"
+                  value="Found myself"
+                />{" "}
+                Found myself
+              </label>
+            </div>
+          </div>
         </div>
-        <button type="submit">Send</button>
+        <button className={css.formBtn} type="submit">
+          Send
+        </button>
       </form>
     </div>
   );

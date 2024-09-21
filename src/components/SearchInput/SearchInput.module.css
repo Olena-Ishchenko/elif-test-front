@@ -1,0 +1,15 @@
+.searchContainer {
+  margin-bottom: 40px;
+  display: flex;
+  gap: 60px;
+}
+
+.searchText {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.searchInput {
+  width: 230px;
+  height: 25px;
+}

@@ -1,10 +1,10 @@
 import EventCard from "../EventCard/EventCard";
+import css from "./EventList.module.css";
 
 const EventList = ({ data }) => {
-  console.log(data);
   return (
     <div>
-      <ul>
+      <ul className={css.eventsList}>
         {data.map((event) => (
           <li key={event._id}>
             <EventCard event={event} />

@@ -1,13 +1,21 @@
 import { Link } from "react-router-dom";
+import css from "./EventCard.module.css";
 
 const EventCard = ({ event }) => {
   return (
-    <div>
-      <h3>{event.title}</h3>
-      <p>{event.description}</p>
-      <nav>
-        <Link to={`/events/${event._id}/register`}>Register</Link>
-        <Link to={`/events/${event._id}/participants`}>View</Link>
+    <div className={css.eventCard}>
+      <h3 className={css.eventTitle}>{event.title}</h3>
+      <p className={css.eventDescr}>{event.description}</p>
+      <nav className={css.eventLinkContainer}>
+        <Link className={css.eventLink} to={`/events/${event._id}/register`}>
+          Register
+        </Link>
+        <Link
+          className={css.eventLink}
+          to={`/events/${event._id}/participants`}
+        >
+          View
+        </Link>
       </nav>
     </div>
   );

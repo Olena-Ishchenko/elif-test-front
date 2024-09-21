@@ -1,0 +1,17 @@
+.participantPage {
+  border: 1px solid black;
+  padding: 40px;
+}
+
+.participantTitle {
+  margin-bottom: 30px;
+}
+
+.homeLink {
+  display: flex;
+  justify-content: end;
+  color: blue;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: underline;
+}

@@ -5,7 +5,7 @@ import css from "./EventsBoardPage.module.css";
 import ReactPaginate from "react-paginate";
 
 export default function EventsBoardPage() {
-  axios.defaults.baseURL = "http://localhost:3000";
+  axios.defaults.baseURL = "https://elif-test-back.onrender.com";
   const [events, setevents] = useState([]);
   const [pageNow, setPageNow] = useState(1);
   const [totalPage, setTotalPage] = useState(0);

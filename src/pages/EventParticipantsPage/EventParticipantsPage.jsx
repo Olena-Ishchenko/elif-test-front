@@ -6,7 +6,7 @@ import css from "./EventParticipantsPage.module.css";
 import SearchInput from "../../components/SearchInput/SearchInput";
 
 export default function EventParticipantsPage() {
-  axios.defaults.baseURL = "http://localhost:3000";
+  axios.defaults.baseURL = "https://elif-test-back.onrender.com";
   const [participants, setParticipants] = useState([]);
   const [eventById, setEventById] = useState([]);
   const [filterName, setFilterName] = useState("");

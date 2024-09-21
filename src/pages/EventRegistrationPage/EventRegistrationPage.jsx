@@ -5,7 +5,7 @@ import css from "./EventRegistrationPage.module.css";
 import { NavLink } from "react-router-dom";
 
 export default function EventRegistrationPage() {
-  axios.defaults.baseURL = "http://localhost:3000";
+  axios.defaults.baseURL = "https://elif-test-back.onrender.com";
   const [participantData, setParticipantData] = useState({});
 
   useEffect(() => {

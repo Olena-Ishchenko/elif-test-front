@@ -5,18 +5,14 @@ import { useEffect, useState } from "react";
 export default function EventsBoardPage() {
   axios.defaults.baseURL = "http://localhost:3000";
   const [events, setevents] = useState([]);
-  const getEvents = async () => {
-    const { data } = await axios.get("/events");
-    setevents(data.data);
-  };
 
   useEffect(() => {
+    const getEvents = async () => {
+      const { data } = await axios.get("/events");
+      setevents(data.data.data);
+    };
     getEvents();
   }, []);
 
-  return (
-    <>
-      <EventList data={events} />
-    </>
-  );
+  return <> {events && <EventList data={events} />}</>;
 }

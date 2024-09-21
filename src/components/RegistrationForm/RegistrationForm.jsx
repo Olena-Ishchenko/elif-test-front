@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import * as Yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useParams } from "react-router-dom";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ onSubmit }) => {
   //   const eighteenYearsAgo = new Date();
   //   eighteenYearsAgo.setFullYear(eighteenYearsAgo.getFullYear() - 18);
 
@@ -19,6 +20,8 @@ const RegistrationForm = () => {
       .required("Date of birth is required"),
   });
 
+  const { id } = useParams();
+
   const {
     register,
     handleSubmit,
@@ -33,7 +36,9 @@ const RegistrationForm = () => {
       <h2>Event registration</h2>
       <form
         onSubmit={handleSubmit((data) => {
+          data.event_id = id;
           console.log(data);
+          onSubmit(data);
           reset();
         })}
       >

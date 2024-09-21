@@ -1,6 +1,7 @@
 import EventCard from "../EventCard/EventCard";
 
 const EventList = ({ data }) => {
+  console.log(data);
   return (
     <div>
       <ul>
